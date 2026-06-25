@@ -12,7 +12,7 @@ st.set_page_config(
     layout = "wide",
     
 )
-d = pd.read_csv(r"C:\Users\Pratik\Downloads\core_2024_990combined.csv")
+d = pd.read_csv("data/core_2024_990combined.csv")
 d1 = d.dropna()
 data2 = d1[["is_501c3","total_assets_eoy","prohibited_tax_shelter_cd","investment_income","gross_sales_inventory","total_liabilities_eoy","total_net_assets_eoy","total_revenue","total_contributions","program_service_revenue","total_expenses","gross_income_fundraising_events","gross_income_gaming_activities","excess_benefit_transaction_cd","disqualified_persons_amts_sec509","loan_to_interested_person_cd",'excess_over_1pct_sec509',
     'excess_over_2pct_sec170',
