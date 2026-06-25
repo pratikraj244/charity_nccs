@@ -397,8 +397,9 @@ if drop == "revenue source metrics":
         y="investment_income",
         color_discrete_sequence=["#0c59ff"]
     )
-    st.write("This insights tells us the average income from investments for each organization states. It also identifies which organizations are wealthy.")
+    
     st.plotly_chart(f1, use_container_width=True)
+    st.write("This insights tells us the average income from investments for each organization states. It also identifies which organizations are wealthy.")
     st.subheader("Average contributions with states")
     contributions = data2.groupby("state")["total_contributions"].mean().reset_index()
     f6 = px.area(
