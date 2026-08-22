@@ -276,8 +276,8 @@ st.dataframe(state_df, use_container_width=True)
 st.title("📊 INSIGHTS AND DETAILED ANALYTICS")
 col1, col2, col3, col4,col5 = st.columns(5)
 with col1:
-  drop1 = st.selectbox(label="Organizations",options=["Complaint charity","non complaint non profit"])
-if drop1 == "Complaint charity":
+  drop1 = st.selectbox(label="Organizations",options=["Compliant charity","Non Compliant Non Profit"])
+if drop1 == "Compliant charity":
   li2 = len(data2[data2["is_501c3"] == True])
   col2.metric("tax exempt organization",value=li2)
   style_metric_cards(background_color="green",         # Entire card background
@@ -294,23 +294,23 @@ if drop1 == "Complaint charity":
             border_left_color="green",border_color="green")
 
   li5= len(data2[data2["loan_to_interested_person_cd"] == False])
-  col5.metric("Organizations having insider loans",value=li5)
+  col5.metric("Organizations do not having insider loans",value=li5)
   style_metric_cards(background_color="green",         # Entire card background
             border_left_color="green",border_color="green")
 
-if drop1 == "non complaint non profit":
+if drop1 == "Non Compliant Non Profit":
   li2 = len(data2[data2["is_501c3"] == False])
-  col2.metric("tax exempt organization",value=li2)
+  col2.metric("non tax exempt organization",value=li2)
   style_metric_cards(background_color="red",         # Entire card background
             border_left_color="red",border_color="red")
 
   li3 = len(data2[data2["prohibited_tax_shelter_cd"] == True])
-  col3.metric("non tax shelter flag organization",value=li3)
+  col3.metric("tax shelter flag organization",value=li3)
   style_metric_cards(background_color="red",         # Entire card background
             border_left_color="red",border_color="red")
 
   li4 = len(data2[data2["excess_benefit_transaction_cd"] == True])
-  col4.metric("non excess benefit organizations",value=li4)
+  col4.metric("excess benefit organizations",value=li4)
   style_metric_cards(background_color="red",         # Entire card background
             border_left_color="red",border_color="red")
 
